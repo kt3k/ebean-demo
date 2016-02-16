@@ -1,0 +1,13 @@
+apply plugin: "application"
+
+mainClassName = "org.kt3k.Main"
+
+/*
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.avaje:ebean-orm:1.0.0"
+}
+*/
