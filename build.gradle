@@ -2,12 +2,13 @@ apply plugin: "application"
 
 mainClassName = "org.kt3k.Main"
 
-/*
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "org.avaje:ebean-orm:1.0.0"
+    compile "org.avaje.ebeanorm:avaje-ebeanorm:6.17.3"
+    compile "org.avaje:avaje-agentloader:2.1.2"
+    compile "org.avaje.ebeanorm:avaje-ebeanorm-agent:4.9.1"
+    compile "mysql:mysql-connector-java:5.1.38"
 }
-*/
