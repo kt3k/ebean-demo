@@ -1,13 +1,10 @@
 package org.kt3k.dto;
 
 import javax.persistence.*;
-import com.avaje.ebean.Model;
 
 @Entity
 @Table(name="potions")
-public class Potion extends Model {
-
-    //public static final Finder<Long, Potion> find = new Finder<Long, Potion>(Long.class, Potion.class);
+public class Potion extends com.avaje.ebean.Model {
 
     @Id
     Long id;
