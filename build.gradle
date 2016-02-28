@@ -1,31 +1,26 @@
-apply plugin: "application"
+buildscript {
+    repositories {
+        mavenCentral()
+    }
 
-mainClassName = "org.kt3k.Main"
+    dependencies {
+        classpath 'org.kt3k:ebean-enhance-plugin:1.0.2'
+    }
+}
+apply plugin: 'application'
+apply plugin: 'com.github.kt3k.ebean.enhance'
+
+mainClassName = 'org.kt3k.Main'
 
 repositories {
     mavenCentral()
 }
 
-configurations {
-    enhance
-}
-
 dependencies {
     compile "org.avaje.ebeanorm:avaje-ebeanorm:6.17.3"
     compile "mysql:mysql-connector-java:5.1.38"
-
-    enhance "org.avaje.ebeanorm:avaje-ebeanorm-agent:4.9.1"
 }
 
-task enhanceEbean << {
-    ant.taskdef name: 'enhanceEbean', classname: 'com.avaje.ebean.enhance.ant.AntEnhanceTask', classpath: configurations.enhance.asPath
-    ant.enhanceEbean(
-        classSource: buildDir.getAbsolutePath() + '/classes/main',
-        packages: 'org.kt3k.dto.**',
-        transformArgs: 'debug=5'
-    )
-}
-
-classes {
-    dependsOn enhanceEbean
+ebeanEnhance {
+    packages = "org.kt3k.dto.**"
 }
