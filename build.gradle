@@ -12,6 +12,8 @@ buildscript {
 apply plugin: 'application'
 apply plugin: 'com.github.kt3k.ebean.enhance'
 
+println project.buildDir
+
 mainClassName = 'org.kt3k.Main'
 
 repositories {
@@ -19,8 +21,10 @@ repositories {
 }
 
 dependencies {
-    compile "org.avaje.ebeanorm:avaje-ebeanorm:6.17.3"
-    compile "mysql:mysql-connector-java:5.1.38"
+    compile 'org.avaje.ebeanorm:avaje-ebeanorm:6.17.3'
+    compile 'mysql:mysql-connector-java:5.1.38'
+
+    testCompile 'junit:junit:4.12'
 }
 
 ebeanEnhance {
